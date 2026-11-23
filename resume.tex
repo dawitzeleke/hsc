@@ -1,0 +1,323 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Modified for Dawit Zeleke
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+\usepackage[sfdefault]{roboto}
+\usepackage{fontawesome5}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.75in}
+\addtolength{\evensidemargin}{-0.75in}
+\addtolength{\textwidth}{1.5in}
+\addtolength{\topmargin}{-.75in}
+\addtolength{\textheight}{1.5in}
+\setlist[itemize]{leftmargin=*}
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generated pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+% 4-field heading: {Title/Company}{Location}{Role/Degree}{Date}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+% 2-field heading: {Title}{Date}
+\newcommand{\resumeAward}[2]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+% Sub-role line under a company: {Role}{Date}
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+% Sub-role line with no date
+\newcommand{\resumeSubSubheadingNoDate}[1]{
+    \item
+    \textit{\small #1}\vspace{-4pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%% RESUME STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+
+\begin{center}
+    \textbf{\Huge \scshape Dawit Zeleke Begi} \\ \vspace{1pt}
+    \href{mailto:dawitzeleke92@gmail.com}{\underline{dawitzeleke92@gmail.com}} $|$
+    \small +251962235740 $|$
+    Addis Ababa, Ethiopia $|$
+    \href{https://www.linkedin.com/in/dawit-zeleke/}{\faLinkedin\ LinkedIn} $|$
+    \href{https://github.com/dawitzeleke}{\faGithub\ GitHub} $|$
+    \href{https://dawit-portfolio-zeta.vercel.app/}{\faGlobe\ Portfolio}
+\end{center}
+
+
+%-----------EDUCATION-----------
+
+\section{Education}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Addis Ababa University {\href{https://www.statista.com/chart/28098/top-universities-in-africa-by-the/}{(6th best in Africa in 2022) \faExternalLink*}}}{Addis Ababa, Ethiopia}
+{B.S. in Software Engineering and Computing Technology (Software Engineering Stream)}{Jul 2021 -- Jun 2025}
+\resumeItemListStart
+\resumeItem{\textbf{GPA} - 3.46/4.00 (Distinction)}
+\resumeItem{\textbf{Coursework} - Fundamentals of Artificial Intelligence, Machine Learning and Big Data, Data Structures and Algorithms, Web \& Mobile Application Development, Object-Oriented Programming and Database Systems.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+%-----------RESEARCH EXPERIENCE-----------
+
+\section{Research Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{\href{https://aii.et/}{Ethiopian Artificial Intelligence Institute \faExternalLink*}}{Addis Ababa, Ethiopia}
+{Data Science Engineer \textbar\ Machine Learning Researcher}{Aug 2025 -- Present}
+\resumeItemListStart
+\resumeItem{Conducted research on \textbf{machine learning-driven} climate projections, processing \textbf{98K+ historical records} across \textbf{196 locations} and \textbf{315K+ daily CMIP6 records} to model climate extremes across Ethiopia.}
+\resumeItem{Developed and benchmarked \textbf{3 ML models (XGBoost, Random Forest, LSTM)} using \textbf{14 engineered spatiotemporal features}, with XGBoost achieving \textbf{0.82 KGE} and \textbf{0.75 NSE}, outperforming the LSTM baseline.}
+\resumeItem{Generated climate projections through \textbf{2100} under \textbf{SSP2-4.5 and SSP5-8.5} scenarios, producing \textbf{1,033 future monthly projections} to assess potential changes in precipitation and temperature across Ethiopia.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+%-----------PROFESSIONAL EXPERIENCE-----------
+
+\section{Professional Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{\href{https://aii.et/}{Ethiopian Artificial Intelligence Institute \faExternalLink*}}{Addis Ababa, Ethiopia}
+{Software Engineer}{Aug 2025 -- Present}
+\resumeItemListStart
+\resumeItem{Developed and deployed the \href{https://play.google.com/store/apps/details?id=et.aii.eprs}{\textbf{Clean Ethiopia} \faExternalLink*} environmental violation reporting app, achieving \textbf{1,000+ downloads on the Google Play Store}.}
+\resumeItem{Improved network reliability with exponential backoff and API caching, \textbf{reducing redundant calls by 60\%}.}
+\resumeItem{Identified and resolved \textbf{10+} performance bottlenecks and software bugs, ensuring a \textbf{99.9\%} app responsiveness rate.}
+\resumeItem{Implemented a cross-platform (\href{https://play.google.com/store/apps/details?id=et.aii.telehealth&pcampaignid=web_share}{\textbf{TeleHealth} \faExternalLink*}) app in Flutter with real-time video consultations (Livekit), appointment booking, and role-based dashboards for patients, specialists, and clinic staff.}
+\resumeItem{Re-architected backend chat infrastructure from \textbf{HTTP polling} to a persistent \textbf{WebSocket connection}, \textbf{eliminating $\sim$20 redundant API requests per minute per user.}}
+\resumeItem{Automated backend deployments by implementing a \textbf{GitLab CI/CD pipeline}, eliminating \textbf{manual SSH access} and \textbf{reducing release time from $\sim$15 minutes to under 2 minutes.}}
+\resumeItemListEnd
+
+\resumeSubheading
+{\href{https://www.zulu-tech.com/}{Zulu Technologies \faExternalLink*}}{Addis Ababa, Ethiopia}
+{Front-End Developer}{Nov 2025 -- Mar 2026}
+\resumeItemListStart
+\resumeItem{Delivered scalable software solutions for global clients \textbf{across 3 continents}, managing end-to-end development cycles in an enterprise outsourcing environment.}
+\resumeItem{Built a \textbf{Next.js} CRM dashboard handling \textbf{20K+ contacts} across \textbf{15+ modules}, enabling scalable loan operations.}
+\resumeItem{Engineered an AI-assisted document pipeline (\textbf{5 APIs}, versioning, workflows), accelerating loan processing.}
+\resumeItem{Designed a keyboard-first UI with \textbf{26} custom hooks, unifying \textbf{6} data entities and reducing context switching.}
+\resumeItem{Pioneered rapid prototyping initiatives for localized projects, decreasing MVP delivery time \textbf{from 6 weeks to 20 days.}}
+\resumeItemListEnd
+
+\resumeSubheading
+{\href{https://www.linkedin.com/company/aait-innovation-center/}{AAiT Innovation Center \faExternalLink*}}{Addis Ababa, Ethiopia}
+{Software Development Team Lead}{Jan 2025 -- Jun 2025}
+\resumeItemListStart
+\resumeItem{Project selected as one of the \textbf{top 3} from \textbf{20+ applicants} for a spot at the AAiT Innovation Center.}
+\resumeItem{Led a team of \textbf{4} developers in building an interactive e-learning platform {\href{https://github.com/dawitzeleke/capstoneProject}{(\textbf{Cognify \faExternalLink*})}} using \textbf{React Native, ASP.NET Core, and MongoDB}.}
+\resumeItem{Strengthened expertise in \textbf{system scalability}, REST API design, and \textbf{data-driven personalization} through full-cycle backend development and production deployment.}
+\resumeItem{Created a \textbf{recommendation system} to suggest content based on students' past performance.}
+\resumeItem{Achieved the \textbf{2nd-highest score} among \textbf{40} capstone projects.}
+\resumeItemListEnd
+
+\resumeSubheading
+{\href{https://xceltech.et/}{Xceltech Solution \faExternalLink*}}{Addis Ababa, Ethiopia}
+{Software Engineer Intern}{Mar 2024 -- Jun 2024}
+\resumeItemListStart
+\resumeItem{Developed an HR management system using \textbf{ASP.NET Core}, translating stakeholder requirements into backend services and business workflows.}
+\resumeItem{Validated RESTful API endpoints and resolved critical defects, improving backend reliability and integration testing.}
+\resumeItem{Added \textbf{pagination} and enhanced functionality for improved user experience and performance.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+%-----------PROFESSIONAL DEVELOPMENT-----------
+
+\section{Professional Development}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Africa To Silicon Valley {\href{https://www.newsfilecorp.com/release/150848/A2SV-Receives-Funding-from-Google-as-Part-of-Their-Support-for-Diverse-African-Tech-Talent}{(Backed by Google) \faExternalLink*}}}{Addis Ababa, Ethiopia}
+{Competitive Programming and Software Development}{Sep 2022 -- Oct 2023}
+\resumeItemListStart
+\resumeItem{Dedicated \textbf{1,500+ hours} to mastering Data Structures, Algorithms, Software Development, and professional collaboration.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+%-----------LEADERSHIP EXPERIENCE-----------
+
+\section{Leadership Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Africa to Silicon Valley (A2SV)}{Addis Ababa, Ethiopia}
+{Head of Academy}{Nov 2023 -- Mar 2025}
+\resumeItemListStart
+\resumeItem{Led a team of \textbf{25 Heads of Education} to deliver training to \textbf{140 students}, and managed the recruitment of top candidates from over \textbf{4,100 applicants} across \textbf{49 countries} for A2SV's 5th and 6th Generation cohorts.}
+\resumeItem{Oversaw the education of \textbf{210 students in A2SV's 6th} Generation, focusing on Data Structures and Algorithms.}
+\resumeItemListEnd
+
+\resumeSubheading
+{Addis Ababa Institute of Technology (AAiT) Innovation Center}{Addis Ababa, Ethiopia}
+{Student Managing Member}{Jan 2025 -- Jun 2025}
+\resumeItemListStart
+\resumeItem{Served as a managing member overseeing \textbf{daily operations} of the innovation center, coordinating logistics and administrative routines.}
+\resumeItem{Provided \textbf{technical mentorship} and guidance to student teams working on diverse research-oriented and innovative projects.}
+\resumeItem{\textbf{Voluntarily} organized comprehensive resources to guide \textbf{10+} students on their journey into top tech companies.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+%-----------VOLUNTEER EXPERIENCE-----------
+
+\section{Volunteer Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Saint Joseph School}{Addis Ababa, Ethiopia}
+{Volunteer CS Instructor \& Mentor (Data Structures and Algorithms)}{Oct 2026 -- Present}
+\resumeItemListStart
+\resumeItem{Assisted \textbf{100+ high school students} in learning programming fundamentals, data structures, and algorithms.}
+\resumeItem{Delivered lectures and provided hands-on support during laboratory sessions to strengthen students' understanding of programming concepts.}
+\resumeItemListEnd
+
+\resumeSubheading
+{CodeLinden}{Remote}
+{Full Stack Developer}{May 2025 -- Sep 2025}
+\resumeItemListStart
+\resumeItem{Developed a booking system using \textbf{PHP, JavaScript, Jest, and ScyllaDB}, focusing on migration, testing, and reliability.}
+\resumeItem{Migrated \textbf{3,000+ lines} of PHP to JavaScript while preserving complex booking logic and functionality.}
+\resumeItem{Implemented \textbf{25+ unit tests} and exposed \textbf{20+ booking methods} via HTML for structured testing.}
+\resumeItem{Migrated from SQL to \textbf{ScyllaDB}, designing optimized tables and queries, reducing system latency by \textbf{25\%}.}
+\resumeItemListEnd
+
+\resumeSubSubheading{Product Manager \& Quality Assurance Engineer}{}
+\resumeItemListStart
+\resumeItem{Led a team of \textbf{4 engineers} to deliver an AWS Chime integration server, coordinating development, QA sessions, and technical guidance.}
+\resumeItem{Orchestrated end-to-end testing of ChatManager across \textbf{30+} chat and messaging features, validating API and HTML functionality.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+%-----------TECHNICAL SKILLS-----------
+
+\section{Technical Skills}
+\begin{itemize}[label={}]
+\small{\item{
+\textbf{Languages}{: Python, C\#, Dart, Java, JavaScript/TypeScript, PHP} \\
+\textbf{Developer Tools}{: Linux, Git/GitHub/GitLab, Docker} \\
+\textbf{Technologies/Frameworks}{: Flutter, Next.js, ASP.NET Core, Spring Boot, React.js, Express.js, AWS, Pandas, NumPy, TensorFlow, PyTorch} \\
+\textbf{Databases}{: MongoDB, MySQL, PostgreSQL, ScyllaDB}
+}}
+\end{itemize}
+
+
+%-----------AWARDS-----------
+
+\section{Awards}
+\resumeSubHeadingListStart
+
+\resumeAward
+{Certificate of Excellence - \href{https://drive.google.com/file/d/13NNrj9Xv2Rj8Uc_SUNemu6athCnUWHLy/view?usp=sharing}{Outstanding Performance on National Examination \faExternalLink*}}
+{Apr 2021}
+\resumeItemListStart
+\resumeItem{Recognized as a \textbf{top 0.01\%} performer out of over \textbf{338,528} students in 2021.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+%-----------EXTRACURRICULAR ACTIVITIES-----------
+
+\section{Extracurricular Activities}
+\resumeSubHeadingListStart
+
+\resumeAward
+{Charity Club - \href{https://drive.google.com/file/d/1CQDPcRZKGckqnOG36ZGYGmNhcJQ8RUR7/view?usp=sharing}{Reference Letter \faExternalLink*}}
+{Sep 2019 -- Jun 2020}
+\resumeItemListStart
+\resumeItem{Organized a donation drive at my high school, collecting clothing and monetary contributions to support hundreds of people in need.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-------------------------------------------
+\end{document}
