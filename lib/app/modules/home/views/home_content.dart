@@ -6,129 +6,163 @@ class HomeContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      bottom: false,
-      child: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(child: _buildHeader()),
-          SliverToBoxAdapter(child: _buildBanner()),
-          SliverToBoxAdapter(child: _buildActionCards()),
-          SliverToBoxAdapter(child: _buildAppointmentsHeader()),
-          SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            sliver: SliverList(
-              delegate: SliverChildListDelegate([
-                _AppointmentCard(
-                  id: '00/0001/284930',
-                  time: '10:00 AM',
-                  plaintiff: 'Yewerq wha taye',
-                  plaintiffCount: '02',
-                  note: 'Up next · Please arrive 15 minutes early',
+    return Column(
+      children: [
+        _buildHeader(),
+        Expanded(
+          child: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(child: _buildBanner()),
+              SliverToBoxAdapter(child: _buildActionCards()),
+              SliverToBoxAdapter(child: _buildAppointmentsHeader()),
+              SliverPadding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                sliver: SliverList(
+                  delegate: SliverChildListDelegate([
+                    _AppointmentCard(
+                      id: '00/0001/284930',
+                      time: '10:00 AM',
+                      plaintiff: 'Yewerq wha taye',
+                      plaintiffCount: '02',
+                      note: 'Up next · Please arrive 15 minutes early',
+                    ),
+                    _AppointmentCard(
+                      id: '00/0001/285027',
+                      time: '10:30 AM',
+                      plaintiff: 'Hawa Adem Mohammed',
+                      plaintiffCount: '01',
+                      note: 'Up next · Please arrive 45 minutes early',
+                    ),
+                    _AppointmentCard(
+                      id: '00/0001/284937',
+                      time: '10:30 AM',
+                      plaintiff: 'Hintsa Tesfay',
+                      plaintiffCount: '01',
+                      note: 'Up next · Please arrive 45 minutes early',
+                    ),
+                    const SizedBox(height: 100),
+                  ]),
                 ),
-                _AppointmentCard(
-                  id: '00/0001/285027',
-                  time: '10:30 AM',
-                  plaintiff: 'Hawa Adem Mohammed',
-                  plaintiffCount: '01',
-                  note: 'Up next · Please arrive 45 minutes early',
-                ),
-                _AppointmentCard(
-                  id: '00/0001/284937',
-                  time: '10:30 AM',
-                  plaintiff: 'Hintsa Tesfay',
-                  plaintiffCount: '01',
-                  note: 'Up next · Please arrive 45 minutes early',
-                ),
-                const SizedBox(height: 100),
-              ]),
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
   Widget _buildHeader() {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
-      child: Row(
-        children: [
-          // Logo
-          ClipOval(
-            child: SizedBox(
-              width: 44,
-              height: 44,
-              child: Transform.scale(
-                scale: 1.21,
-                child: Image.asset('assets/images/harari_logo.png'),
+    return Container(
+      color: AppColors.primary,
+      child: SafeArea(
+        bottom: false,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 12, 16, 14),
+          child: Row(
+            children: [
+              // Logo
+              ClipOval(
+                child: SizedBox(
+                  width: 50,
+                  height: 50,
+                  child: Transform.scale(
+                    scale: 1.21,
+                    child: Image.asset('assets/images/harari_logo.png'),
+                  ),
+                ),
               ),
-            ),
-          ),
-          const SizedBox(width: 10),
-          // Title
-          const Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Harari Region Supreme Court',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.primary,
-                  ),
+              const SizedBox(width: 10),
+              // Title
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Harari Region Supreme Court',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.onPrimary,
+                      ),
+                    ),
+                    Text(
+                      'COURT SERVICES',
+                      style: TextStyle(
+                        fontSize: 9,
+                        letterSpacing: 1.5,
+                        color: AppColors.onPrimary.withOpacity(0.8),
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
                 ),
-                Text(
-                  'COURT SERVICES',
-                  style: TextStyle(
-                    fontSize: 10,
-                    letterSpacing: 1.5,
-                    color: AppColors.primary,
-                    fontWeight: FontWeight.w400,
-                  ),
+              ),
+              // Language selector
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 6,
                 ),
-              ],
-            ),
-          ),
-          // Language selector
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey.shade300),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Text(
-                  'EN',
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.primary,
-                  ),
+                decoration: BoxDecoration(
+                  color: AppColors.onPrimary,
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                const SizedBox(width: 2),
-                Icon(Icons.keyboard_arrow_down, size: 18, color: AppColors.primary),
-              ],
-            ),
+                child: const Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'EN',
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.primary,
+                      ),
+                    ),
+                    SizedBox(width: 2),
+                    Icon(
+                      Icons.keyboard_arrow_down,
+                      size: 18,
+                      color: AppColors.primary,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 8),
+              // Notification bell
+              Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: AppColors.onPrimary,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/icons/notification.png',
+                      color: AppColors.primary,
+                      width: 20,
+                      height: 20,
+                    ),
+                    Positioned(
+                      top: 9,
+                      right: 7,
+                      child: Container(
+                        width: 7,
+                        height: 7,
+                        decoration: const BoxDecoration(
+                          color: Colors.red,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-          const SizedBox(width: 8),
-          // Notification bell
-          Container(
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-              color: AppColors.primary,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: const Icon(
-              Icons.notifications_outlined,
-              color: AppColors.onPrimary,
-              size: 20,
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
@@ -165,7 +199,10 @@ class HomeContent extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 4,
+                        ),
                         decoration: BoxDecoration(
                           color: AppColors.primary.withOpacity(0.85),
                           borderRadius: BorderRadius.circular(16),
@@ -173,7 +210,11 @@ class HomeContent extends StatelessWidget {
                         child: const Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Icon(Icons.campaign_outlined, color: Colors.white, size: 14),
+                            Icon(
+                              Icons.campaign_outlined,
+                              color: Colors.white,
+                              size: 14,
+                            ),
                             SizedBox(width: 4),
                             Text(
                               'SERVICE UPDATE',
@@ -209,16 +250,26 @@ class HomeContent extends StatelessWidget {
                     children: [
                       Text(
                         'Check in online before your visit.',
-                        style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 12),
+                        style: TextStyle(
+                          color: Colors.white.withOpacity(0.8),
+                          fontSize: 12,
+                        ),
                       ),
                       Row(
                         children: [
                           Text(
                             'Learn more',
-                            style: TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 12),
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(0.9),
+                              fontSize: 12,
+                            ),
                           ),
                           const SizedBox(width: 4),
-                          Icon(Icons.arrow_forward, color: Colors.white.withOpacity(0.9), size: 14),
+                          Icon(
+                            Icons.arrow_forward,
+                            color: Colors.white.withOpacity(0.9),
+                            size: 14,
+                          ),
                         ],
                       ),
                     ],
@@ -262,22 +313,22 @@ class HomeContent extends StatelessWidget {
         children: [
           Expanded(
             child: _ActionCard(
-              icon: Icons.calendar_month_outlined,
+              icon: 'assets/icons/calender.png',
               title: 'Appointments',
               subtitle: 'Stay informed on\ncourt appointments.',
               buttonText: 'View Appointments',
-              color: AppColors.primary.withOpacity(0.08),
+              isFollowUp: false,
               onTap: () {},
             ),
           ),
           const SizedBox(width: 12),
           Expanded(
             child: _ActionCard(
-              icon: Icons.find_in_page_outlined,
+              icon: 'assets/icons/search.png',
               title: 'Follow up',
               subtitle: 'Stay informed on\nyour case progress.',
               buttonText: 'Track a case',
-              color: AppColors.primary.withOpacity(0.08),
+              isFollowUp: true,
               filled: true,
               onTap: () {},
             ),
@@ -312,7 +363,11 @@ class HomeContent extends StatelessWidget {
                 color: AppColors.primary.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Icon(Icons.calendar_today, size: 18, color: AppColors.primary),
+              child: Icon(
+                Icons.calendar_today,
+                size: 18,
+                color: AppColors.primary,
+              ),
             ),
             const SizedBox(width: 12),
             const Expanded(
@@ -321,10 +376,7 @@ class HomeContent extends StatelessWidget {
                 children: [
                   Text(
                     "Today's Appointments",
-                    style: TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.w700,
-                    ),
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),
                   ),
                   SizedBox(height: 2),
                   Text(
@@ -358,11 +410,11 @@ class HomeContent extends StatelessWidget {
 }
 
 class _ActionCard extends StatelessWidget {
-  final IconData icon;
+  final String icon;
   final String title;
   final String subtitle;
   final String buttonText;
-  final Color color;
+  final bool isFollowUp;
   final bool filled;
   final VoidCallback onTap;
 
@@ -371,7 +423,7 @@ class _ActionCard extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.buttonText,
-    required this.color,
+    required this.isFollowUp,
     this.filled = false,
     required this.onTap,
   });
@@ -381,25 +433,32 @@ class _ActionCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: color,
+        color: isFollowUp ? AppColors.lightPrimary : AppColors.primary,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: 36,
-            height: 36,
+            width: 40,
+            height: 40,
+            alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: AppColors.primary.withOpacity(0.12),
+              color: isFollowUp ? AppColors.onPrimary : Color.fromRGBO(255, 255, 255, 0.09),
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Icon(icon, size: 18, color: AppColors.primary),
+            child: Image.asset(
+              icon,
+              width: 25,
+              height: 25,
+              color: isFollowUp ? AppColors.primary : AppColors.onPrimary,
+            ),
           ),
           const SizedBox(height: 12),
           Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
+              color: isFollowUp ? AppColors.primary : AppColors.onPrimary,
               fontSize: 17,
               fontWeight: FontWeight.w700,
             ),
@@ -407,7 +466,11 @@ class _ActionCard extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             subtitle,
-            style: TextStyle(fontSize: 12, color: Colors.grey.shade600, height: 1.4),
+            style: TextStyle(
+              fontSize: 12,
+              color: isFollowUp ? Colors.grey.shade600 : AppColors.lightPrimary,
+              height: 1.4,
+            ),
           ),
           const SizedBox(height: 14),
           GestureDetector(
@@ -415,14 +478,12 @@ class _ActionCard extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
               decoration: BoxDecoration(
-                color: filled ? AppColors.primary : Colors.transparent,
-                border: Border.all(
-                  color: AppColors.primary,
-                ),
-                borderRadius: BorderRadius.circular(20),
+                color: isFollowUp ? AppColors.primary : AppColors.onPrimary,
+                border: Border.all(color: AppColors.primary),
+                borderRadius: BorderRadius.circular(10),
               ),
               child: Row(
-                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Flexible(
                     child: Text(
@@ -432,7 +493,9 @@ class _ActionCard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 11.5,
                         fontWeight: FontWeight.w600,
-                        color: filled ? Colors.white : AppColors.primary,
+                        color: isFollowUp
+                            ? AppColors.onPrimary
+                            : AppColors.primary,
                       ),
                     ),
                   ),
@@ -440,7 +503,7 @@ class _ActionCard extends StatelessWidget {
                   Icon(
                     Icons.north_east,
                     size: 13,
-                    color: filled ? Colors.white : AppColors.primary,
+                    color: isFollowUp ? AppColors.onPrimary : AppColors.primary,
                   ),
                 ],
               ),
@@ -507,7 +570,10 @@ class _AppointmentCard extends StatelessWidget {
                 ],
               ),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 5,
+                ),
                 decoration: BoxDecoration(
                   color: AppColors.primary.withOpacity(0.08),
                   borderRadius: BorderRadius.circular(16),
@@ -544,12 +610,18 @@ class _AppointmentCard extends StatelessWidget {
                   children: [
                     Text(
                       'Plaintiff',
-                      style: TextStyle(fontSize: 11, color: Colors.grey.shade500),
+                      style: TextStyle(
+                        fontSize: 11,
+                        color: Colors.grey.shade500,
+                      ),
                     ),
                     const SizedBox(height: 2),
                     Text(
                       plaintiff,
-                      style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ],
                 ),
@@ -564,7 +636,10 @@ class _AppointmentCard extends StatelessWidget {
                   const SizedBox(height: 2),
                   Text(
                     plaintiffCount,
-                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ],
               ),
@@ -590,7 +665,10 @@ class _AppointmentCard extends StatelessWidget {
                     Flexible(
                       child: Text(
                         note,
-                        style: TextStyle(fontSize: 11, color: Colors.grey.shade600),
+                        style: TextStyle(
+                          fontSize: 11,
+                          color: Colors.grey.shade600,
+                        ),
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
@@ -610,7 +688,11 @@ class _AppointmentCard extends StatelessWidget {
                         color: AppColors.primary,
                       ),
                     ),
-                    Icon(Icons.chevron_right, size: 16, color: AppColors.primary),
+                    Icon(
+                      Icons.chevron_right,
+                      size: 16,
+                      color: AppColors.primary,
+                    ),
                   ],
                 ),
               ),
