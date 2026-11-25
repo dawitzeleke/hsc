@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:hsc/core/constants/app_colors.dart';
 
-class HomeHeader extends StatelessWidget {
-  const HomeHeader({super.key});
+class AppHeader extends StatelessWidget {
+  final Widget? leading;
+  final String title;
+  final String subtitle;
+
+  const AppHeader({
+    super.key,
+    this.leading,
+    this.title = 'Harari Region Supreme Court',
+    this.subtitle = 'COURT SERVICES',
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,31 +23,23 @@ class HomeHeader extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(16, 12, 16, 14),
           child: Row(
             children: [
-              ClipOval(
-                child: SizedBox(
-                  width: 50,
-                  height: 50,
-                  child: Transform.scale(
-                    scale: 1.21,
-                    child: Image.asset('assets/images/harari_logo.png'),
-                  ),
-                ),
-              ),
+              // Leading: logo by default, or custom widget (e.g. back button)
+              leading ?? _buildLogo(),
               const SizedBox(width: 10),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Harari Region Supreme Court',
-                      style: TextStyle(
+                    Text(
+                      title,
+                      style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
                         color: AppColors.onPrimary,
                       ),
                     ),
                     Text(
-                      'COURT SERVICES',
+                      subtitle,
                       style: TextStyle(
                         fontSize: 9,
                         letterSpacing: 1.5,
@@ -49,6 +50,7 @@ class HomeHeader extends StatelessWidget {
                   ],
                 ),
               ),
+              // Language selector
               Container(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 10,
@@ -79,6 +81,7 @@ class HomeHeader extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8),
+              // Notification bell
               Container(
                 width: 40,
                 height: 40,
@@ -112,6 +115,19 @@ class HomeHeader extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildLogo() {
+    return ClipOval(
+      child: SizedBox(
+        width: 50,
+        height: 50,
+        child: Transform.scale(
+          scale: 1.21,
+          child: Image.asset('assets/images/harari_logo.png'),
         ),
       ),
     );

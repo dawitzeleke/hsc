@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/home_header.dart';
+// AppHeader is now the shared header widget (renamed from HomeHeader)
 import '../widgets/service_banner.dart';
 import '../widgets/action_card.dart';
 import '../widgets/appointments_section.dart';
@@ -11,7 +12,7 @@ class HomeContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const HomeHeader(),
+        const AppHeader(),
         Expanded(
           child: CustomScrollView(
             slivers: [
