@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hsc/core/constants/app_colors.dart';
 import '../controllers/home_controller.dart';
 import '../../home/widgets/custom_bottom_nav_bar.dart';
 import 'home_content.dart';
 import 'package:hsc/app/modules/court_fee/views/court_fee_view.dart';
 import 'package:hsc/app/modules/profile/views/profile_view.dart';
+import 'package:hsc/app/modules/complaints/views/complaints_view.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -16,30 +16,17 @@ class HomeView extends GetView<HomeController> {
       backgroundColor: Colors.grey[100],
       body: Obx(() => IndexedStack(
             index: controller.currentIndex.value,
-            children: [
-              const HomeContent(),
-              const CourtFeeView(),
-              _buildPlaceholderPage('Complaints'),
-              const ProfileView(),
+            children: const [
+              HomeContent(),
+              CourtFeeView(),
+              ComplaintsView(),
+              ProfileView(),
             ],
           )),
       bottomNavigationBar: Obx(
         () => CustomBottomNavBar(
           currentIndex: controller.currentIndex.value,
           onTap: controller.changeTab,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildPlaceholderPage(String title) {
-    return Center(
-      child: Text(
-        title,
-        style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.w600,
-          color: AppColors.primary.withOpacity(0.4),
         ),
       ),
     );
