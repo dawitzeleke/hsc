@@ -13,8 +13,8 @@ class CourtFeeController extends GetxController {
     if (input <= 0) return;
 
     amount.value = input;
-    refereeFee.value = input * 0.10; // 10%
-    appealsFee.value = input * 0.05; // 5%
+    refereeFee.value = input * 0.10;
+    appealsFee.value = input * 0.05;
     showResult.value = true;
   }
 

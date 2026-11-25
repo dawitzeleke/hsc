@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hsc/core/constants/app_colors.dart';
-import '../controllers/home_controller.dart';
+import 'package:hsc/app/modules/home/controllers/home_controller.dart';
+import 'package:hsc/app/widgets/app_header.dart';
 import '../controllers/court_fee_controller.dart';
-import '../widgets/home_header.dart';
 
-class CourtFeeContent extends StatelessWidget {
-  const CourtFeeContent({super.key});
+class CourtFeeView extends StatelessWidget {
+  const CourtFeeView({super.key});
 
   @override
   Widget build(BuildContext context) {

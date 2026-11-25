@@ -4,7 +4,7 @@ import 'package:hsc/core/constants/app_colors.dart';
 import '../controllers/home_controller.dart';
 import '../../home/widgets/custom_bottom_nav_bar.dart';
 import 'home_content.dart';
-import 'court_fee_content.dart';
+import 'package:hsc/app/modules/court_fee/views/court_fee_view.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -17,7 +17,7 @@ class HomeView extends GetView<HomeController> {
             index: controller.currentIndex.value,
             children: [
               const HomeContent(),
-              const CourtFeeContent(),
+              const CourtFeeView(),
               _buildPlaceholderPage('Complaints'),
               _buildPlaceholderPage('Profile'),
             ],
