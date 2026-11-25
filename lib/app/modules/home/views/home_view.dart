@@ -5,6 +5,7 @@ import '../controllers/home_controller.dart';
 import '../../home/widgets/custom_bottom_nav_bar.dart';
 import 'home_content.dart';
 import 'package:hsc/app/modules/court_fee/views/court_fee_view.dart';
+import 'package:hsc/app/modules/profile/views/profile_view.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -19,7 +20,7 @@ class HomeView extends GetView<HomeController> {
               const HomeContent(),
               const CourtFeeView(),
               _buildPlaceholderPage('Complaints'),
-              _buildPlaceholderPage('Profile'),
+              const ProfileView(),
             ],
           )),
       bottomNavigationBar: Obx(
