@@ -19,7 +19,7 @@ class ActionCards extends StatelessWidget {
               subtitle: 'Stay informed on\ncourt appointments.',
               buttonText: 'View Appointments',
               isFollowUp: false,
-              onTap: () {},
+              onTap: () => Get.toNamed(Routes.APPOINTMENTS),
             ),
           ),
           const SizedBox(width: 12),

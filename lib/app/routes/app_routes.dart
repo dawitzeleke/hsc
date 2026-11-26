@@ -8,6 +8,7 @@ abstract class Routes {
   static const FOLLOW_UP = _Paths.FOLLOW_UP;
   static const COMPLAINT_DETAIL = _Paths.COMPLAINT_DETAIL;
   static const NEW_COMPLAINT = _Paths.NEW_COMPLAINT;
+  static const APPOINTMENTS = _Paths.APPOINTMENTS;
 }
 
 abstract class _Paths {
@@ -17,4 +18,5 @@ abstract class _Paths {
   static const FOLLOW_UP = '/follow-up';
   static const COMPLAINT_DETAIL = '/complaint-detail';
   static const NEW_COMPLAINT = '/new-complaint';
+  static const APPOINTMENTS = '/appointments';
 }

@@ -9,6 +9,8 @@ import '../modules/follow_up/views/follow_up_view.dart';
 import '../modules/complaints/views/complaint_detail_view.dart';
 import '../modules/complaints/bindings/new_complaint_binding.dart';
 import '../modules/complaints/views/new_complaint_view.dart';
+import '../modules/appointments/bindings/appointments_binding.dart';
+import '../modules/appointments/views/appointments_view.dart';
 
 part 'app_routes.dart';
 
@@ -41,6 +43,11 @@ class AppPages {
       name: _Paths.NEW_COMPLAINT,
       page: () => const NewComplaintView(),
       binding: NewComplaintBinding(),
+    ),
+    GetPage(
+      name: _Paths.APPOINTMENTS,
+      page: () => const AppointmentsView(),
+      binding: AppointmentsBinding(),
     ),
   ];
 }
