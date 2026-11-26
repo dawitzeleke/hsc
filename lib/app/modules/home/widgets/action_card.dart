@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hsc/core/constants/app_colors.dart';
+import 'package:hsc/app/routes/app_pages.dart';
 
 class ActionCards extends StatelessWidget {
   const ActionCards({super.key});
@@ -28,7 +30,7 @@ class ActionCards extends StatelessWidget {
               subtitle: 'Stay informed on\nyour case progress.',
               buttonText: 'Track a case',
               isFollowUp: true,
-              onTap: () {},
+              onTap: () => Get.toNamed(Routes.FOLLOW_UP),
             ),
           ),
         ],
