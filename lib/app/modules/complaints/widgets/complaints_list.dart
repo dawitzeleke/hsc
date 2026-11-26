@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hsc/core/constants/app_colors.dart';
+import 'package:hsc/app/routes/app_pages.dart';
 import '../controllers/complaints_controller.dart';
 
 class ComplaintsList extends StatelessWidget {
@@ -185,14 +186,19 @@ class _ComplaintCard extends StatelessWidget {
         ? const Color(0xFF16A34A)
         : const Color(0xFFD97706);
 
-    return Container(
-      margin: const EdgeInsets.only(bottom: 10),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: Colors.grey.shade200),
+    return GestureDetector(
+      onTap: () => Get.toNamed(
+        Routes.COMPLAINT_DETAIL,
+        arguments: {'id': data.id, 'status': data.status},
       ),
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 10),
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: Colors.grey.shade200),
+        ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -274,6 +280,7 @@ class _ComplaintCard extends StatelessWidget {
           ),
         ],
       ),
+    ),
     );
   }
 }
