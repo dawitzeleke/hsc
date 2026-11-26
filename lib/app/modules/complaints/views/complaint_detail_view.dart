@@ -11,6 +11,20 @@ class ComplaintDetailView extends StatelessWidget {
     final args = Get.arguments as Map<String, String>? ?? {};
     final id = args['id'] ?? 'CMP-2026-0148';
     final status = args['status'] ?? 'In review';
+    final courtOffice = args['courtOffice'] ?? 'Harari Supreme Court';
+    final category = args['category'] ?? 'Service Delay';
+    final subject = args['title'] ?? 'Delay in receiving a court document';
+    final description = args['description'] ??
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+            'Sed do eiusmod tempor incididunt ut labore et dolore magna '
+            'aliqua. Ut enim ad minim veniam, quis nostrud exercitation '
+            'ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+    final caseNumber = args['caseNumber'] ?? '00/0001/23';
+    final incidentDate = args['incidentDate'] ?? '22 Nov, 2026';
+    final contactName = args['contactName'] ?? 'Bereket Nigussie';
+    final contactPhone = args['contactPhone'] ?? '+251912345678';
+    final attachmentName = args['attachmentName'] ?? 'Attachment.pdf';
+    final attachmentSize = args['attachmentSize'] ?? '248 KB';
 
     final isResolved = status == 'Resolved';
     final statusColor =
@@ -118,19 +132,16 @@ class ComplaintDetailView extends StatelessWidget {
                     Row(
                       children: [
                         Expanded(
-                          child: _labelValue(
-                              'Court / Office', 'Harari Supreme Court'),
+                          child: _labelValue('Court / Office', courtOffice),
                         ),
                         Expanded(
-                          child: _labelValue(
-                              'Complaint Category', 'Service Delay'),
+                          child: _labelValue('Complaint Category', category),
                         ),
                       ],
                     ),
                     const SizedBox(height: 18),
                     // Subject
-                    _labelValue('Subject',
-                        'Delay in receiving a court document'),
+                    _labelValue('Subject', subject),
                     const SizedBox(height: 18),
                     // Description
                     Text(
@@ -140,10 +151,7 @@ class ComplaintDetailView extends StatelessWidget {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
-                      'Sed do eiusmod tempor incididunt ut labore et dolore magna '
-                      'aliqua. Ut enim ad minim veniam, quis nostrud exercitation '
-                      'ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                      description,
                       style: TextStyle(
                         fontSize: 13,
                         color: Colors.grey.shade700,
@@ -166,7 +174,7 @@ class ComplaintDetailView extends StatelessWidget {
                               ),
                               const SizedBox(height: 2),
                               Text(
-                                '00/0001/23',
+                                caseNumber,
                                 style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w700,
@@ -188,7 +196,7 @@ class ComplaintDetailView extends StatelessWidget {
                               ),
                               const SizedBox(height: 2),
                               Text(
-                                '22 Nov, 2026',
+                                incidentDate,
                                 style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w700,
@@ -223,57 +231,58 @@ class ComplaintDetailView extends StatelessWidget {
                           Row(
                             children: [
                               Expanded(
-                                child: _labelValue(
-                                    'Full Name', 'Bereket Nigussie'),
+                                child: _labelValue('Full Name', contactName),
                               ),
                               Expanded(
-                                child: _labelValue(
-                                    'Phone Number', '+251912345678'),
+                                child:
+                                    _labelValue('Phone Number', contactPhone),
                               ),
                             ],
                           ),
                         ],
                       ),
                     ),
-                    const SizedBox(height: 14),
-                    // Attachment
-                    Container(
-                      padding: const EdgeInsets.all(14),
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade50,
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: Colors.grey.shade200),
-                      ),
-                      child: Row(
-                        children: [
-                          Icon(Icons.description_outlined,
-                              size: 22, color: AppColors.primary),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  'Attachment.pdf',
-                                  style: TextStyle(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w600,
+                    if (attachmentName.isNotEmpty) ...[
+                      const SizedBox(height: 14),
+                      // Attachment
+                      Container(
+                        padding: const EdgeInsets.all(14),
+                        decoration: BoxDecoration(
+                          color: Colors.grey.shade50,
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: Colors.grey.shade200),
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(Icons.description_outlined,
+                                size: 22, color: AppColors.primary),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    attachmentName,
+                                    style: const TextStyle(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(height: 2),
-                                Text(
-                                  '248 KB · Uploaded',
-                                  style: TextStyle(
-                                    fontSize: 11,
-                                    color: Colors.grey.shade500,
+                                  const SizedBox(height: 2),
+                                  Text(
+                                    '$attachmentSize · Uploaded',
+                                    style: TextStyle(
+                                      fontSize: 11,
+                                      color: Colors.grey.shade500,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
+                    ],
                   ],
                 ),
               ),

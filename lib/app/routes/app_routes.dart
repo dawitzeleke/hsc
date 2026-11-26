@@ -7,6 +7,7 @@ abstract class Routes {
   static const HOME = _Paths.HOME;
   static const FOLLOW_UP = _Paths.FOLLOW_UP;
   static const COMPLAINT_DETAIL = _Paths.COMPLAINT_DETAIL;
+  static const NEW_COMPLAINT = _Paths.NEW_COMPLAINT;
 }
 
 abstract class _Paths {
@@ -15,4 +16,5 @@ abstract class _Paths {
   static const HOME = '/home';
   static const FOLLOW_UP = '/follow-up';
   static const COMPLAINT_DETAIL = '/complaint-detail';
+  static const NEW_COMPLAINT = '/new-complaint';
 }
